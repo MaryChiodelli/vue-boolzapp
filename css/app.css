@@ -4,6 +4,10 @@
     margin: 0;
 }
 
+body {
+    background-color: #DBDBD3;
+}
+
 ul, ol, menu {
     list-style: none;
 }
@@ -19,11 +23,14 @@ ul, ol, menu {
 
 .app-sidebar {
     flex-basis: 535px;
-    background-color: #E63946;
+    overflow: auto;
+    background-color: #FFFFFF;
 }
 
 .sidebar-header {
-    padding: 0.625rem 23px 0.625rem 0.625rem;
+    padding: 0.625rem;
+
+    background-color: #EAEAEA;
 
     display: flex;
     justify-content: space-between;
@@ -33,7 +40,7 @@ ul, ol, menu {
 .sidebar-menu {
     display: flex;
     align-items: center;
-    gap: 1.125rem;
+    gap: 1rem;
 }
 
 main {
@@ -52,14 +59,37 @@ main {
 .avatar--sm {
     width: 50px;
 }
+.icon-wrapper {
+    padding: 2px;
+}
 
 .icon {
-    height: 1.5rem;
+    width: 1.25rem;
     aspect-ratio: 1 / 1;
 
     display: block;
 }
 
-.icon-ellipsis {
-    width: 0.75rem;
+.chat-item {
+    padding: 10px 20px;
+    border-bottom: 1px solid #E9EBEB;
+
+    display: flex;
+    gap: 1.25rem;
+}
+
+.chat-item:last-child {
+    border: none;
+}
+
+.chat-content {
+    width: 100%;
+}
+
+.chat-content__time {
+    float: right;
+}
+
+.active {
+    background-color: #E9EBEB;
 }
