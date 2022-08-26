@@ -4,6 +4,10 @@
     margin: 0;
 }
 
+ul, ol, menu {
+    list-style: none;
+}
+
 .app-wrapper {
     max-width: 1535px;
     height: 100vh;
@@ -13,12 +17,49 @@
     display: flex;
 }
 
-aside {
+.app-sidebar {
     flex-basis: 535px;
     background-color: #E63946;
+}
+
+.sidebar-header {
+    padding: 0.625rem 23px 0.625rem 0.625rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.125rem;
 }
 
 main {
     flex-basis: calc(100% - 535px);
     background-color: #F1FAEE;
+}
+
+.avatar {
+    width: 60px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    
+    display: block;
+}
+
+.avatar--sm {
+    width: 50px;
+}
+
+.icon {
+    height: 1.5rem;
+    aspect-ratio: 1 / 1;
+
+    display: block;
+}
+
+.icon-ellipsis {
+    width: 0.75rem;
 }
