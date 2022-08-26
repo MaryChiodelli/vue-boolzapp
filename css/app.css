@@ -18,8 +18,8 @@ ul, ol, menu {
 }
 
 input {
-    padding: 8px;
     border: none;
+    padding: 8px;
 }
 
 input,
@@ -51,7 +51,8 @@ input,
     background-color: #FFFFFF;
 }
 
-.sidebar-header {
+.sidebar-header,
+.content-header {
     padding: 0.625rem;
 
     background-color: #EAEAEA;
@@ -61,7 +62,12 @@ input,
     align-items: center;
 }
 
-.sidebar-header .avatar {
+.content-header {
+    margin-left: 2px;
+}
+
+.sidebar-header .avatar,
+.content-header .avatar {
     margin-right: 15px;
 }
 
@@ -74,11 +80,6 @@ input,
     display: flex;
     align-items: center;
     gap: 1rem;
-}
-
-main {
-    flex-basis: calc(100% - 535px);
-    background-color: #F1FAEE;
 }
 
 .avatar {
@@ -166,4 +167,52 @@ main {
 
 .active {
     background-color: #E9EBEB;
+}
+
+main {
+    flex-basis: calc(100% - 535px);
+    background-color: #F1FAEE;
+}
+
+.content {
+    height: calc(100% - 140px);
+    padding: 55px 100px;
+}
+
+.message {
+    width: 315px;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.sent {
+    background-color: #D5F9BA;
+}
+
+.received {
+    background-color: #FFFFFF;
+}
+
+.content-footer {
+    padding: 10px 0;
+    margin-left: 2px;
+
+    background-color: #F3EEEA;
+
+    display: flex;
+    align-items: center;
+}
+
+.content-footer .icon{
+    margin: 0 33px;
+}
+
+.content-footer .input {
+    flex-grow: 1;
+}
+
+.input--lg {
+    padding: 16px;
+    border-radius: 8px;
+    line-height: 18px;
 }
