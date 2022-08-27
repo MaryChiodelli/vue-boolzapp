@@ -62,10 +62,6 @@ input,
     align-items: center;
 }
 
-.content-header {
-    margin-left: 2px;
-}
-
 .sidebar-header .avatar,
 .content-header .avatar {
     margin-right: 15px;
@@ -171,31 +167,55 @@ input,
 
 main {
     flex-basis: calc(100% - 535px);
-    background-color: #F1FAEE;
 }
 
-.content {
-    height: calc(100% - 140px);
+.app-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex-grow: 1;
+}
+
+.chat-background {
+    background: url('./../assets/mine.jpg') center/500px repeat #E5DDD5;
+}
+
+.message-list {
     padding: 55px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .message {
     width: 315px;
-    padding: 1rem;
     border-radius: 10px;
 }
 
-.sent {
+.message__text {
+    padding: 12px 6px 0 15px;
+}
+
+.message__time {
+    padding: 0 6px 6px 15px;
+    font-size: 12px;
+    line-height: 1em;
+    text-align: end;
+}
+
+.message--sent {
+    align-self: flex-end;
     background-color: #D5F9BA;
 }
 
-.received {
+.message--received {
     background-color: #FFFFFF;
 }
 
 .content-footer {
     padding: 10px 0;
-    margin-left: 2px;
 
     background-color: #F3EEEA;
 

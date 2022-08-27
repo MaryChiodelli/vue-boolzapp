@@ -7,10 +7,11 @@
     <title>Boolzapp</title>
     <link rel="stylesheet" href="./css/app.css">
     <script src="https://kit.fontawesome.com/1e0e3edb9d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
 </head>
 <body>
 
-    <div class="app-wrapper">
+    <div id="app" class="app-wrapper">
 
         <aside class="app-sidebar">
             <div class="sidebar-header">
@@ -60,7 +61,17 @@
             </div><!--/search-form -->
 
             <ul class="chat-list">
-                <li class="chat-item active">
+                <li v-for="contact in contacts" class="chat-item">
+                    <img class="avatar" :src="contact.avatar" alt="">
+                    <div class="chat-content">
+                        <div class="chat-meta">
+                            <span class="chat-content__name">{{contact.name}}</span>
+                            <span class="chat-content__time">12:00</span>
+                        </div>
+                        <p class="chat-content__text">Ultimo messaggio inviato</p>
+                    </div>
+                </li>
+                <!-- <li class="chat-item">
                     <img class="avatar" src="https://picsum.photos/100/100" alt="">
                     <div class="chat-content">
                         <div class="chat-meta">
@@ -129,17 +140,7 @@
                         </div>
                         <p class="chat-content__text">Lorem ipsum dolor sit amet.</p>
                     </div>
-                </li>
-                <li class="chat-item">
-                    <img class="avatar" src="https://picsum.photos/100/100" alt="">
-                    <div class="chat-content">
-                        <div class="chat-meta">
-                            <span class="chat-content__name">Lorem.</span>
-                            <span class="chat-content__time">Lorem.</span>
-                        </div>
-                        <p class="chat-content__text">Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </li>
+                </li> -->
             </ul><!--/chat-list -->
 
         </aside>
@@ -170,22 +171,20 @@
                 </ul>
             </div><!--/content-header -->
 
-            <div class="content">
-                <ul class="message-list">
-                    <li class="message sent">
-                        <div>Lorem ipsum dolor sit amet consectetur adipisicing.</div>
-                        <span>Lorem.</span>
-                    </li>
-                    <li class="message sent">
-                        <div>Lorem ipsum dolor sit amet consectetur adipisicing.</div>
-                        <span>Lorem.</span>
-                    </li>
-                    <li class="message received">
-                        <div>Lorem ipsum dolor sit amet consectetur adipisicing.</div>
-                        <span>Lorem.</span>
-                    </li>
-                </ul>
-            </div>
+            <ul class="main-content chat-background message-list">
+                <li class="message message--sent">
+                    <div class="message__text">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+                    <div class="message__time">Lorem.</div>
+                </li>
+                <li class="message message--sent">
+                    <div class="message__text">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+                    <div class="message__time">Lorem.</div>
+                </li>
+                <li class="message message--received">
+                    <div class="message__text">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+                    <div class="message__time">Lorem.</div>
+                </li>
+            </ul>
 
             <footer class="content-footer">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -203,5 +202,6 @@
 
     </div>
     
+    <script type="text/javascript" src="./js/app.js"></script>
 </body>
 </html>
