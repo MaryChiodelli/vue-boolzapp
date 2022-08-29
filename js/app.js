@@ -197,6 +197,19 @@ const app = new Vue({
             );
 
             this.newMessage = '';
+        },
+        autoReply: function() {
+            this.activeMessages.push(
+                {
+                    date: '10/01/2020 15:51:00',
+                    message: 'ok',
+                    status: 'received'
+                }
+            );
+        },
+        onClick: function() {
+            this.addToMessages();
+            setTimeout(this.autoReply, 1000);
         }
     }
 });
