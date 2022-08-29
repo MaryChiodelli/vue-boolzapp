@@ -61,7 +61,7 @@
             </div><!--/search-form -->
 
             <ul class="contact-list">
-                <li v-for="contact in contacts" class="contact">
+                <li v-for="(contact, index) in contacts" :class="['contact', index === activeIndex ? 'active' : '']">
                     <img class="avatar" :src="contact.avatar" alt="">
                     <div class="contact-content">
                         <div class="contact-meta">
@@ -71,77 +71,7 @@
                         <p class="contact__text">Ultimo messaggio inviato</p>
                     </div>
                 </li>
-                <!-- <li class="chat-item">
-                    <img class="avatar" src="https://picsum.photos/100/100" alt="">
-                    <div class="chat-content">
-                        <div class="chat-meta">
-                            <span class="chat-content__name">Lorem.</span>
-                            <span class="chat-content__time">Lorem.</span>
-                        </div>
-                        <p class="chat-content__text">Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </li>
-                <li class="chat-item">
-                    <img class="avatar" src="https://picsum.photos/100/100" alt="">
-                    <div class="chat-content">
-                        <div class="chat-meta">
-                            <span class="chat-content__name">Lorem.</span>
-                            <span class="chat-content__time">Lorem.</span>
-                        </div>
-                        <p class="chat-content__text">Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </li>
-                <li class="chat-item">
-                    <img class="avatar" src="https://picsum.photos/100/100" alt="">
-                    <div class="chat-content">
-                        <div class="chat-meta">
-                            <span class="chat-content__name">Lorem.</span>
-                            <span class="chat-content__time">Lorem.</span>
-                        </div>
-                        <p class="chat-content__text">Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </li>
-                <li class="chat-item">
-                    <img class="avatar" src="https://picsum.photos/100/100" alt="">
-                    <div class="chat-content">
-                        <div class="chat-meta">
-                            <span class="chat-content__name">Lorem.</span>
-                            <span class="chat-content__time">Lorem.</span>
-                        </div>
-                        <p class="chat-content__text">Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </li>
-                <li class="chat-item">
-                    <img class="avatar" src="https://picsum.photos/100/100" alt="">
-                    <div class="chat-content">
-                        <div class="chat-meta">
-                            <span class="chat-content__name">Lorem.</span>
-                            <span class="chat-content__time">Lorem.</span>
-                        </div>
-                        <p class="chat-content__text">Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </li>
-                <li class="chat-item">
-                    <img class="avatar" src="https://picsum.photos/100/100" alt="">
-                    <div class="chat-content">
-                        <div class="chat-meta">
-                            <span class="chat-content__name">Lorem.</span>
-                            <span class="chat-content__time">Lorem.</span>
-                        </div>
-                        <p class="chat-content__text">Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </li>
-                <li class="chat-item">
-                    <img class="avatar" src="https://picsum.photos/100/100" alt="">
-                    <div class="chat-content">
-                        <div class="chat-meta">
-                            <span class="chat-content__name">Lorem.</span>
-                            <span class="chat-content__time">Lorem.</span>
-                        </div>
-                        <p class="chat-content__text">Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </li> -->
-            </ul><!--/chat-list -->
+            </ul><!--/contact-list -->
 
         </aside>
 
@@ -172,16 +102,8 @@
             </div><!--/content-header -->
 
             <ul class="main-content chat-background message-list">
-                <li class="message message--sent">
-                    <div class="message__text">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
-                    <div class="message__time">Lorem.</div>
-                </li>
-                <li class="message message--sent">
-                    <div class="message__text">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
-                    <div class="message__time">Lorem.</div>
-                </li>
-                <li class="message message--received">
-                    <div class="message__text">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+                <li v-for="message in activeMessages" :class="['message', message.status === 'sent' ? 'sent' : 'received']">
+                    <div class="message__text">{{message.message}}</div>
                     <div class="message__time">Lorem.</div>
                 </li>
             </ul>

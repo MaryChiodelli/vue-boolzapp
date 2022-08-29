@@ -208,12 +208,12 @@ main {
     border-radius: 10px;
 }
 
-.message--sent {
+.sent {
     align-self: flex-end;
     background-color: #D5F9BA;
 }
 
-.message--received {
+.received {
     background-color: #FFFFFF;
 }
 

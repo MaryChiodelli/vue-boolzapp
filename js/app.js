@@ -165,7 +165,16 @@ const contacts = [
 const app = new Vue({
     el: '#app',
     data: {
-        contacts: contacts
+        contacts: contacts,
+        activeIndex: 0
+    },
+    computed: {
+        activeContact: function() {
+            return this.contacts[this.activeIndex];
+        },
+        activeMessages: function() {
+            return this.activeContact.messages;
+        }
     }
 });
 
