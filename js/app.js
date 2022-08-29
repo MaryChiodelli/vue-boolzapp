@@ -179,6 +179,7 @@ const app = new Vue({
         },
         searchedContacts: function() {
             this.search = this.search.toLowerCase();
+
             return this.contacts.filter((contact) => {
                 const name = contact.name.toLowerCase();
                 return name.includes(this.search);
@@ -218,6 +219,13 @@ const app = new Vue({
         onClick: function() {
             this.addToMessages();
             setTimeout(this.autoReply, 1000);
+        },
+        toggleVisibility: function() {
+            this.contacts.forEach((contact) => {
+                if(!this.searchedContacts.includes(contact)) {
+                    contact.visible = false;
+                }
+            });
         }
     }
 });

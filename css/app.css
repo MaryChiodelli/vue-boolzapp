@@ -182,6 +182,14 @@ input,
     background-color: #E9EBEB;
 }
 
+.show {
+    display: flex;
+}
+
+.hide {
+    display: none;
+}
+
 main {
     flex-grow: 1;
 }
