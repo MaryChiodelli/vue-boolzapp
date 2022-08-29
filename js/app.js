@@ -175,6 +175,11 @@ const app = new Vue({
         activeMessages: function() {
             return this.activeContact.messages;
         }
+    },
+    methods: {
+        getActiveContact: function(index) {
+            this.activeIndex = index;
+        }
     }
 });
 
