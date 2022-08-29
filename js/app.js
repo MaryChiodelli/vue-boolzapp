@@ -166,7 +166,8 @@ const app = new Vue({
     el: '#app',
     data: {
         contacts: contacts,
-        activeIndex: 0
+        activeIndex: 0,
+        newMessage: ''
     },
     computed: {
         activeContact: function() {
@@ -179,6 +180,23 @@ const app = new Vue({
     methods: {
         getActiveContact: function(index) {
             this.activeIndex = index;
+        },
+        addToMessages: function() {
+            this.newMessage = this.newMessage.trim();
+
+            if (!this.newMessage) {
+                return;
+            }
+
+            this.activeMessages.push(
+                {
+                    date: '10/01/2020 15:51:00',
+                    message: this.newMessage,
+                    status: 'sent'
+                }
+            );
+
+            this.newMessage = '';
         }
     }
 });
