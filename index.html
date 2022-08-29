@@ -60,15 +60,15 @@
                 <input type="text" placeholder="Lorem ipsum dolor sit amet.">
             </div><!--/search-form -->
 
-            <ul class="chat-list">
-                <li v-for="contact in contacts" class="chat-item">
+            <ul class="contact-list">
+                <li v-for="contact in contacts" class="contact">
                     <img class="avatar" :src="contact.avatar" alt="">
-                    <div class="chat-content">
-                        <div class="chat-meta">
-                            <span class="chat-content__name">{{contact.name}}</span>
-                            <span class="chat-content__time">12:00</span>
+                    <div class="contact-content">
+                        <div class="contact-meta">
+                            <span class="contact__name">{{contact.name}}</span>
+                            <span class="contact__time">12:00</span>
                         </div>
-                        <p class="chat-content__text">Ultimo messaggio inviato</p>
+                        <p class="contact__text">Ultimo messaggio inviato</p>
                     </div>
                 </li>
                 <!-- <li class="chat-item">

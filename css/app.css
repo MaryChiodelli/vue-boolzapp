@@ -10,7 +10,7 @@ html {
 }
 
 body {
-    background-color: #DBDBD3;
+    background: linear-gradient(#009688 0% 14%,#D8DBD6 14% 100%);
 }
 
 ul, ol, menu {
@@ -23,17 +23,8 @@ input {
 }
 
 input,
-.chat-content__text,
 .notification__link {
     font-size: 14px;
-}
-
-.chat-content__name {
-    font-size: 18px;
-}
-
-.chat-content__time {
-    font-size: 12px;
 }
 
 .app-wrapper {
@@ -47,8 +38,10 @@ input,
 
 .app-sidebar {
     flex-basis: 535px;
-    overflow: auto;
     background-color: #FFFFFF;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar-header,
@@ -141,7 +134,12 @@ input,
     fill: #8EDAFC;
 }
 
-.chat-item {
+.contact-list {
+    flex-grow: 1;
+    overflow: scroll;
+}
+
+.contact {
     padding: 10px 20px;
     border-bottom: 1px solid #E9EBEB;
 
@@ -149,16 +147,25 @@ input,
     gap: 1.25rem;
 }
 
-.chat-item:last-child {
+.contact:last-child {
     border: none;
 }
 
-.chat-content {
+.contact-content {
     width: 100%;
 }
 
-.chat-content__time {
+.contact__name {
+    font-size: 18px;
+}
+
+.contact__time {
     float: right;
+    font-size: 12px;
+}
+
+.contact__text {
+    font-size: 14px;
 }
 
 .active {
@@ -166,7 +173,7 @@ input,
 }
 
 main {
-    flex-basis: calc(100% - 535px);
+    flex-grow: 1;
 }
 
 .app-content {
@@ -174,8 +181,14 @@ main {
     flex-direction: column;
 }
 
+.content-header,
+.content-footer {
+    border-left: 2px solid #E5DDD5;
+}
+
 .main-content {
     flex-grow: 1;
+    border-left: 2px solid transparent;
 }
 
 .chat-background {
@@ -183,6 +196,7 @@ main {
 }
 
 .message-list {
+    overflow: scroll;
     padding: 55px 100px;
     display: flex;
     flex-direction: column;
@@ -194,6 +208,15 @@ main {
     border-radius: 10px;
 }
 
+.message--sent {
+    align-self: flex-end;
+    background-color: #D5F9BA;
+}
+
+.message--received {
+    background-color: #FFFFFF;
+}
+
 .message__text {
     padding: 12px 6px 0 15px;
 }
@@ -203,15 +226,6 @@ main {
     font-size: 12px;
     line-height: 1em;
     text-align: end;
-}
-
-.message--sent {
-    align-self: flex-end;
-    background-color: #D5F9BA;
-}
-
-.message--received {
-    background-color: #FFFFFF;
 }
 
 .content-footer {
