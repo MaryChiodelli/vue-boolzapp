@@ -18,8 +18,8 @@ ul, ol, menu {
 }
 
 input {
+    width: 100%;
     border: none;
-    padding: 8px;
 }
 
 input,
@@ -107,15 +107,25 @@ input,
     font-weight: 700;
 }
 
-.search-form {
+.search {
     padding: 10px;
-
-    display: flex;
-    align-items: center;
+    position: relative;
+    /* display: flex;
+    align-items: center; */
 }
 
-.search-form .icon {
-    margin: 0 20px;
+.search__icon {
+    position: absolute;
+    top: 50%;
+    left: 33px;
+    transform: translateY(-50%);
+}
+
+.search__input {
+    display: block;
+    padding-left: 70px;
+    line-height: 30px;
+    border-radius: 4px;
 }
 
 .icon {
@@ -239,10 +249,6 @@ main {
 
 .content-footer .icon{
     margin: 0 33px;
-}
-
-.content-footer .input {
-    flex-grow: 1;
 }
 
 .input--lg {

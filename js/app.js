@@ -167,7 +167,8 @@ const app = new Vue({
     data: {
         contacts: contacts,
         activeIndex: 0,
-        newMessage: ''
+        newMessage: '',
+        search: ''
     },
     computed: {
         activeContact: function() {
@@ -175,6 +176,13 @@ const app = new Vue({
         },
         activeMessages: function() {
             return this.activeContact.messages;
+        },
+        searchedContacts: function() {
+            this.search = this.search.toLowerCase();
+            return this.contacts.filter((contact) => {
+                const name = contact.name.toLowerCase();
+                return name.includes(this.search);
+            });
         }
     },
     methods: {
