@@ -249,6 +249,16 @@ const app = new Vue({
         },
         deleteMessage: function(index) {
             this.activeMessages.splice(index, 1);
+        },
+        getTime: function(date) {
+            const [day, time] = date.split(' ');
+            const [hh, mm, ss] = time.split(':');
+            return `${hh}:${mm}`;
+        },
+        getDate: function(date) {
+            const [day, time] = date.split(' ');
+            const [dd, mm, yy] = day.split('/');
+            return `${dd}/${mm}/${yy}`;
         }
     },
     mounted() {
