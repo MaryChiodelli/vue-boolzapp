@@ -15,7 +15,7 @@
 
         <aside class="app-sidebar">
             <div class="sidebar-header">
-                <img class="avatar avatar--sm" src="https://picsum.photos/100/100" alt="">
+                <img class="avatar avatar--sm" src="./assets/avatar_io.jpg" alt="">
                 <span class="user-name">Sofia</span>
                 <ul class="sidebar-menu">
                     <li>
@@ -54,11 +54,11 @@
 
             <div class="search">
                 <svg class="search__icon icon icon--sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z"/></svg>
-                <input @keyup="toggleVisibility" v-model="search" class="search__input" type="text" placeholder="Cerca o inizia una nuova chat">
+                <input @keyup="print" v-model="search" class="search__input" type="text" placeholder="Cerca o inizia una nuova chat">
             </div><!--/search -->
 
             <ul class="contact-list">
-                <li @click="setActiveContact(index)" v-for="(contact, index) in contacts" :class="['contact', index === activeIndex ? 'active' : '', searchedContacts.includes(contact) ? 'show' : 'hide']">
+                <li @click="setActiveContact(index)" v-for="(contact, index) in searchedContacts" :class="['contact', index === activeIndex ? 'active' : '']">
                     <img class="avatar" :src="contact.avatar" alt="">
                     <div class="contact-content">
                         <div class="contact-meta">

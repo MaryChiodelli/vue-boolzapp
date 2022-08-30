@@ -172,7 +172,7 @@ const app = new Vue({
     },
     computed: {
         activeContact: function() {
-            return this.contacts[this.activeIndex];
+            return this.searchedContacts[this.activeIndex];
         },
         activeMessages: function() {
             return this.activeContact.messages;
@@ -189,6 +189,9 @@ const app = new Vue({
     methods: {
         setActiveContact: function(index) {
             this.activeIndex = index;
+
+            console.log(this.activeContact);
+            console.log(this.activeIndex);
         },
         sendMessage: function() {
             const text = this.newMessage.trim();
@@ -210,13 +213,20 @@ const app = new Vue({
                 status: status
             }
         },
-        toggleVisibility: function() {
-            this.contacts.forEach((contact) => {
-                if(!this.searchedContacts.includes(contact)) {
-                    contact.visible = false;
-                }
-            });
+        print: function() {
+            console.log(this.searchedContacts);
+            this.activeIndex = 0;
+        
+            console.log(this.activeContact);
+            console.log(this.activeIndex);
+
         }
+    },
+    mounted() {
+        console.log(this.searchedContacts)
+
+        console.log(this.activeContact);
+        console.log(this.activeIndex);
     }
 });
 
