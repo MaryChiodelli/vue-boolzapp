@@ -182,14 +182,6 @@ input,
     background-color: #E9EBEB;
 }
 
-.show {
-    display: flex;
-}
-
-.hide {
-    display: none;
-}
-
 main {
     flex-grow: 1;
 }
@@ -224,6 +216,7 @@ main {
 .message {
     width: 315px;
     border-radius: 10px;
+    position: relative;
 }
 
 .sent {
@@ -233,6 +226,19 @@ main {
 
 .received {
     background-color: #FFFFFF;
+}
+
+.popup {
+    padding: 8px 15px;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    background-color: #FFFFFF;
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
 }
 
 .message__text {

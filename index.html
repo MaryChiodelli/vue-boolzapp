@@ -94,9 +94,10 @@
             </div><!--/content-header -->
 
             <ul class="main-content chat-background message-list">
-                <li v-for="message in activeMessages" :class="['message', message.status]">
+                <li @click="togglePopoup(message)" v-for="(message, index) in activeMessages" :class="['message', message.status]">
                     <div class="message__text">{{message.message}}</div>
                     <div class="message__time">12:00</div>
+                    <div @click="deleteMessage" :class="['popup', message.delete ? 'show' : '']">Delete element</div>
                 </li>
             </ul>
 
