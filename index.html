@@ -58,7 +58,7 @@
             </div><!--/search -->
 
             <ul class="contact-list">
-                <li @click="getActiveContact(index)" v-for="(contact, index) in contacts" :class="['contact', index === activeIndex ? 'active' : '', searchedContacts.includes(contact) ? 'show' : 'hide']">
+                <li @click="setActiveContact(index)" v-for="(contact, index) in contacts" :class="['contact', index === activeIndex ? 'active' : '', searchedContacts.includes(contact) ? 'show' : 'hide']">
                     <img class="avatar" :src="contact.avatar" alt="">
                     <div class="contact-content">
                         <div class="contact-meta">
@@ -94,7 +94,7 @@
             </div><!--/content-header -->
 
             <ul class="main-content chat-background message-list">
-                <li v-for="message in activeMessages" :class="['message', message.status === 'sent' ? 'sent' : 'received']">
+                <li v-for="message in activeMessages" :class="['message', message.status]">
                     <div class="message__text">{{message.message}}</div>
                     <div class="message__time">12:00</div>
                 </li>
@@ -105,7 +105,7 @@
                     <!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                     <path d="M256 352C293.2 352 319.2 334.5 334.4 318.1C343.3 308.4 358.5 307.7 368.3 316.7C378 325.7 378.6 340.9 369.6 350.6C347.7 374.5 309.7 400 256 400C202.3 400 164.3 374.5 142.4 350.6C133.4 340.9 133.1 325.7 143.7 316.7C153.5 307.7 168.7 308.4 177.6 318.1C192.8 334.5 218.8 352 256 352zM208.4 208C208.4 225.7 194 240 176.4 240C158.7 240 144.4 225.7 144.4 208C144.4 190.3 158.7 176 176.4 176C194 176 208.4 190.3 208.4 208zM304.4 208C304.4 190.3 318.7 176 336.4 176C354 176 368.4 190.3 368.4 208C368.4 225.7 354 240 336.4 240C318.7 240 304.4 225.7 304.4 208zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"/>
                 </svg>
-                <input @keyup.enter="onClick" v-model="newMessage" class="input input--lg" type="text" placeholder="Scrivi un messaggio">
+                <input @keyup.enter="sendMessage" v-model="newMessage" class="input input--lg" type="text" placeholder="Scrivi un messaggio">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                     <!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                     <path d="M192 352c53.03 0 96-42.97 96-96v-160c0-53.03-42.97-96-96-96s-96 42.97-96 96v160C96 309 138.1 352 192 352zM344 192C330.7 192 320 202.7 320 215.1V256c0 73.33-61.97 132.4-136.3 127.7c-66.08-4.169-119.7-66.59-119.7-132.8L64 215.1C64 202.7 53.25 192 40 192S16 202.7 16 215.1v32.15c0 89.66 63.97 169.6 152 181.7V464H128c-18.19 0-32.84 15.18-31.96 33.57C96.43 505.8 103.8 512 112 512h160c8.222 0 15.57-6.216 15.96-14.43C288.8 479.2 274.2 464 256 464h-40v-33.77C301.7 418.5 368 344.9 368 256V215.1C368 202.7 357.3 192 344 192z"/>

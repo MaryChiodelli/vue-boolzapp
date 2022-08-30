@@ -187,38 +187,28 @@ const app = new Vue({
         }
     },
     methods: {
-        getActiveContact: function(index) {
+        setActiveContact: function(index) {
             this.activeIndex = index;
         },
-        addToMessages: function() {
-            this.newMessage = this.newMessage.trim();
+        sendMessage: function() {
+            const text = this.newMessage.trim();
+            const activeMessages = this.activeMessages;
 
-            if (!this.newMessage) {
-                return;
-            }
+            if (!text) return;
 
-            this.activeMessages.push(
-                {
-                    date: '10/01/2020 15:51:00',
-                    message: this.newMessage,
-                    status: 'sent'
-                }
-            );
-
+            activeMessages.push(this.createMessage(text, 'sent'));
             this.newMessage = '';
+
+            setTimeout(() => {
+                activeMessages.push(this.createMessage('ok', 'received'));
+            }, 1000);            
         },
-        autoReply: function() {
-            this.activeMessages.push(
-                {
-                    date: '10/01/2020 15:51:00',
-                    message: 'ok',
-                    status: 'received'
-                }
-            );
-        },
-        onClick: function() {
-            this.addToMessages();
-            setTimeout(this.autoReply, 1000);
+        createMessage: function(message, status) {
+            return {
+                date: '10/01/2020 15:51:00',
+                message: message,
+                status: status
+            }
         },
         toggleVisibility: function() {
             this.contacts.forEach((contact) => {
