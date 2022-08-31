@@ -187,15 +187,12 @@ const app = new Vue({
     el: '#app',
     data: {
         contacts: contacts,
-        activeIndex: 0,
+        activeContact: contacts[0],
         newMessage: '',
         search: '',
         showPopup: false
     },
     computed: {
-        activeContact: function() {
-            return this.searchedContacts[this.activeIndex];
-        },
         activeMessages: function() {
             return this.activeContact.messages;
         },
@@ -209,11 +206,8 @@ const app = new Vue({
         }
     },
     methods: {
-        setActiveContact: function(index) {
-            this.activeIndex = index;
-
-            console.log(this.activeContact);
-            console.log(this.activeIndex);
+        setActiveContact: function(contact) {
+            this.activeContact = contact;
         },
         sendMessage: function() {
             const text = this.newMessage.trim();
@@ -236,13 +230,8 @@ const app = new Vue({
                 delete: false
             }
         },
-        print: function() {
-            console.log(this.searchedContacts);
-            this.activeIndex = 0;
-        
-            console.log(this.activeContact);
-            console.log(this.activeIndex);
-
+        searchContact: function() {
+            this.activeContact = this.searchedContacts[0];
         },
         togglePopoup: function(message) {
             message.delete = !message.delete;
@@ -260,13 +249,5 @@ const app = new Vue({
             const [dd, mm, yy] = day.split('/');
             return `${dd}/${mm}/${yy}`;
         }
-    },
-    mounted() {
-        console.log(this.searchedContacts)
-
-        console.log(this.activeContact);
-        console.log(this.activeIndex);
     }
 });
-
-console.log(app);
