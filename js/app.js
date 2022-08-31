@@ -233,7 +233,7 @@ const app = new Vue({
         searchContact: function() {
             this.activeContact = this.searchedContacts[0];
         },
-        togglePopoup: function(message) {
+        togglePopup: function(message) {
             message.delete = !message.delete;
         },
         deleteMessage: function(index) {
