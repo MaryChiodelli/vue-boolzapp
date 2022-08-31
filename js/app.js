@@ -231,13 +231,20 @@ const app = new Vue({
             }
         },
         searchContact: function() {
-            this.activeContact = this.searchedContacts[0];
+            if (this.searchedContacts[0] !== undefined) {
+                this.activeContact = this.searchedContacts[0];
+            }
         },
         togglePopup: function(message) {
             message.delete = !message.delete;
         },
         deleteMessage: function(index) {
-            this.activeMessages.splice(index, 1);
+            if (this.activeContact.messages.length === 1 ) {
+                this.activeContact.messages.push(this.createMessage('nessun messaggio inviato o ricevuto', 'hide'));
+                this.activeContact.messages.splice(index, 1);
+            } else {
+                this.activeContact.messages.splice(index, 1);
+            }
         },
         getTime: function(date) {
             const [day, time] = date.split(' ');

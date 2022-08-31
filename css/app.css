@@ -228,6 +228,10 @@ main {
     background-color: #FFFFFF;
 }
 
+.hide {
+    display: none;
+}
+
 .message__text {
     padding: 12px 6px 0 15px;
     display: flex;
